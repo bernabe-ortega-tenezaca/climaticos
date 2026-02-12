@@ -1,3 +1,11 @@
+# --- Dependencias para la API de FastAPI ---
+fastapi
+uvicorn[standard]
+pydantic
+python-dotenv
+
+# --- Dependencias para la App de Streamlit ---
+streamlit
 pandas
 numpy
 matplotlib
@@ -11,7 +19,10 @@ netcdf4
 jupyterlab
 meteostat
 geopy
-streamlit
 plotly
 jolib
+
+# --- Parches y Comunes ---
+# requests y pandas ya están listados arriba, no los repitas
+# Parche para el bug de Python 3.13 en Streamlit Cloud
 altair==4.2.2
