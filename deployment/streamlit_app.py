@@ -11,6 +11,7 @@ import warnings
 import matplotlib.pyplot as plt
 import seaborn as sns
 import joblib
+import os
 
 # --- CONFIGURACIÓN DE PÁGINA Y CSS ---
 st.set_page_config(
@@ -22,7 +23,11 @@ st.set_page_config(
 
 # Cargar el CSS personalizado
 def local_css(file_name):
-    with open(file_name) as f:
+    # Construye la ruta al archivo de forma robusta
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(current_dir, file_name)
+    
+    with open(file_path) as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 local_css("static/style.css")
