@@ -168,18 +168,23 @@ plt.tight_layout(rect=[0, 0, 1, 0.96])
 st.pyplot(fig); plt.close(fig)
 
 # Sub-card para la Importancia de Variables
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
 st.markdown('<h3 style="color: #495057;">Figuras 3, 4 y 5: Importancia de Variables por Modelo</h3>', unsafe_allow_html=True)
 st.markdown('<p style="font-size: 0.9em; color: #6c757d;">*Figuras 3, 4 y 5. Gráficos de barras que muestran las 10 variables más influyentes para los modelos Solar, Eólico e Hídrico, respectivamente. Fuente: Elaboración propia.*</p>', unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    fig_solar = plot_importancia('modelo_regresion_solar.pkl', 'Solar', 'rocket')
+    modelo_solar_path = os.path.join(current_dir, 'modelo_regresion_solar.pkl')
+    fig_solar = plot_importancia(modelo_solar_path, 'Solar', 'rocket')
     if fig_solar: st.pyplot(fig_solar); plt.close(fig_solar)
 with col2:
-    fig_eolica = plot_importancia('modelo_regresion_eolica.pkl', 'Eólica', 'mako')
+    modelo_eolica_path = os.path.join(current_dir, 'modelo_regresion_eolica.pkl')
+    fig_eolica = plot_importancia(modelo_eolica_path, 'Eólica', 'mako')
     if fig_eolica: st.pyplot(fig_eolica); plt.close(fig_eolica)
 with col3:
-    fig_hidrica = plot_importancia('modelo_regresion_hidrica.pkl', 'Hídrica', 'cubehelix')
+    modelo_hidrica_path = os.path.join(current_dir, 'modelo_regresion_hidrica.pkl')
+    fig_hidrica = plot_importancia(modelo_hidrica_path, 'Hídrica', 'cubehelix')
     if fig_hidrica: st.pyplot(fig_hidrica); plt.close(fig_hidrica)
 
 # --- CARD 6: DETALLES TÉCNICOS (PLEGABLE) ---
@@ -223,7 +228,7 @@ def llamar_api_simulacion(energia, altitud, temp, viento, precip):
     """
     Realiza una petición POST al nuevo endpoint de simulación de la API de FastAPI.
     """
-    api_url = "http://127.0.0.1:8000/predecir_simulacion"
+    api_url = "https://climaticos.onrender.com/predecir_simulacion"
     payload = {
         "energia": energia,
         "altitud": altitud,
