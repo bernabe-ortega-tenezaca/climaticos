@@ -57,7 +57,9 @@ def cargar_datos_visualizacion():
     
     recursos['df'] = pd.read_csv(csv_path)
     recursos['df']['provincia_std'] = recursos['df']['provincia'].apply(normalizar_nombre)
-    gdf = gpd.read_file('../data/geographic/ne_10m_admin_1_states_provinces.shp')
+
+    shapefile_path = os.path.join(current_dir, '..', 'data', 'geographic', 'ne_10m_admin_1_states_provinces.shp')
+    gdf = gpd.read_file(shapefile_path)
     recursos['gdf'] = gdf[gdf['admin'] == 'Ecuador'].copy()
     recursos['gdf']['name_std'] = recursos['gdf']['name'].apply(normalizar_nombre)
     return recursos
