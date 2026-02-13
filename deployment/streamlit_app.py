@@ -99,7 +99,7 @@ st.markdown("""
 
 # --- SIDEBAR PARA CONTROLES ---
 st.sidebar.header("Panel de Control")
-tipo_energia_seleccionado = st.sidebar.selectbox("Tipo de Energía", ["Solar", "Eólica", "Hídrica"])
+tipo_energia_seleccionado = st.sidebar.selectbox("Tipo de Energía", ["Solar", "Eolica", "Hidrica"])
 provincias_unicas = sorted(recursos_vis['df']['provincia'].unique())
 provincia_seleccionada = st.sidebar.selectbox("Selecciona una Provincia", provincias_unicas)
 
@@ -229,12 +229,21 @@ def llamar_api_simulacion(energia, altitud, temp, viento, precip):
     Realiza una petición POST al nuevo endpoint de simulación de la API de FastAPI.
     """
     api_url = "https://climaticos.onrender.com/predecir_simulacion"
-    payload = {
+    # --- DEPURACIÓN: Muestra los datos que se van a enviar ---
+    st.write("Datos que se enviarán a la API:", {
         "energia": energia,
         "altitud": altitud,
         "temp_promedio_anual_C": temp,
         "viento_promedio_anual_ms": viento,
         "potencial_hidrico_proxy_mm": precip
+    })
+    # --- FIN DE LA DEPURACIÓN ---
+    payload = {
+        "energia": energia,
+        "altitud": float(altitud),
+        "temp_promedio_anual_C": float(temp),
+        "viento_promedio_anual_ms": float(viento),
+        "potencial_hidrico_proxy_mm": float(precip)
     }
     
     try:
@@ -244,7 +253,10 @@ def llamar_api_simulacion(energia, altitud, temp, viento, precip):
     except requests.exceptions.RequestException as e:
         st.error(f"Error al conectar con la API de simulación: {e}")
         st.warning("Asegúrate de que el servidor de FastAPI esté corriendo.")
-        return None 
+        if e.response is not None:
+            st.error("Detalles del error del servidor:")
+            st.json(e.response.json())
+        return None
 
 # Botón para ejecutar la simulación
 if st.sidebar.button("Ejecutar Simulación"):
