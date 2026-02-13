@@ -37,7 +37,8 @@ def normalizar_nombre(nombre):
     return unicodedata.normalize('NFKD', nombre).encode('ascii', errors='ignore').decode('utf-8')
 
 def llamar_api(provincia: str, energia: str):
-    api_url = "http://127.0.0.1:8000/predecir_por_provincia"
+    api_url = "https://climaticos.onrender.com/predecir_por_provincia"
+    
     params = {"provincia": provincia, "energia": energia}
     try:
         response = requests.get(api_url, params=params)
@@ -45,7 +46,7 @@ def llamar_api(provincia: str, energia: str):
         return response.json()
     except requests.exceptions.RequestException as e:
         st.error(f"Error al conectar con la API: {e}")
-        st.warning("Asegúrate de que el servidor de FastAPI está corriendo en http://127.0.0.1:8000")
+        st.warning("La API no responde")
         return None
 
 @st.cache_resource
