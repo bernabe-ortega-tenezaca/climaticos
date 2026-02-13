@@ -51,7 +51,11 @@ def llamar_api(provincia: str, energia: str):
 @st.cache_resource
 def cargar_datos_visualizacion():
     recursos = {}
-    recursos['df'] = pd.read_csv('dataset_para_app_completo.csv')
+
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    csv_path = os.path.join(current_dir, 'dataset_para_app_completo.csv')
+    
+    recursos['df'] = pd.read_csv(csv_path)
     recursos['df']['provincia_std'] = recursos['df']['provincia'].apply(normalizar_nombre)
     gdf = gpd.read_file('../data/geographic/ne_10m_admin_1_states_provinces.shp')
     recursos['gdf'] = gdf[gdf['admin'] == 'Ecuador'].copy()
