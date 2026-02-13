@@ -213,7 +213,7 @@ st.sidebar.subheader("🛠️ Simulador de Escenarios")
 # Selector de energía para el simulador
 energia_simulador = st.sidebar.selectbox(
     "Energía para Simulación:",
-    ["Solar", "Eólica", "Hídrica"],
+    ["Solar", "Eolica", "Hidrica"],
     key="simulador_energia"
 )
 
