@@ -1,0 +1,30 @@
+# Flujo de análisis
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.3
+shap>=0.44
+joblib>=1.3
+
+# Datos geoespaciales y energía
+geopandas>=0.14
+pyproj>=3.6
+pvlib>=0.10
+meteostat>=1.6
+requests>=2.31
+
+# Figuras
+matplotlib>=3.7
+seaborn>=0.13
+folium>=0.15
+
+# Cuadernos
+jupyterlab>=4.0
+tqdm>=4.66
+
+# Despliegue (opcional: src/api y src/app)
+fastapi>=0.110
+uvicorn>=0.27
+pydantic>=2.0
+streamlit>=1.30
+streamlit-folium>=0.18
+reportlab>=4.0

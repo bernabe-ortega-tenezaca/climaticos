@@ -1,0 +1,179 @@
+{
+  "version": "v4",
+  "fecha_entrenamiento": "2026-05-27 19:04:51",
+  "descripcion": "PVGIS fuente primaria 24 provincias, precipitacion NASA POWER mensual, runoff_coeff fijo 0.35, Hellman 10m-100m, GridSearchCV+GroupKFold",
+  "features_solar_wind": [
+    "latitude",
+    "longitude",
+    "month",
+    "temp_avg",
+    "wind_speed_avg",
+    "humidity_avg"
+  ],
+  "features_hydro": [
+    "latitude",
+    "longitude",
+    "month",
+    "temp_avg",
+    "wind_speed_avg"
+  ],
+  "n_registros": 288,
+  "test_size": 0.2,
+  "random_state": 42,
+  "hiperparametros": {
+    "rf_solar": {
+      "max_depth": null,
+      "min_samples_split": 5,
+      "n_estimators": 100
+    },
+    "gb_solar": {
+      "learning_rate": 0.1,
+      "max_depth": 3,
+      "min_samples_split": 5,
+      "n_estimators": 200
+    },
+    "rf_wind": {
+      "max_depth": 5,
+      "min_samples_split": 2,
+      "n_estimators": 100
+    },
+    "gb_wind": {
+      "learning_rate": 0.1,
+      "max_depth": 3,
+      "min_samples_split": 5,
+      "n_estimators": 100
+    },
+    "rf_hydro": {
+      "max_depth": 10,
+      "min_samples_split": 2,
+      "n_estimators": 200
+    },
+    "gb_hydro": {
+      "learning_rate": 0.05,
+      "max_depth": 3,
+      "min_samples_split": 5,
+      "n_estimators": 200
+    }
+  },
+  "metricas_validacion": [
+    {
+      "Modelo": "Solar",
+      "Algoritmo": "Reg. Lineal",
+      "MAE": 2.2884,
+      "RMSE": 2.792,
+      "R²": 0.3448
+    },
+    {
+      "Modelo": "Solar",
+      "Algoritmo": "Random Forest",
+      "MAE": 1.3491,
+      "RMSE": 1.778,
+      "R²": 0.7343
+    },
+    {
+      "Modelo": "Solar",
+      "Algoritmo": "Gradient Boosting",
+      "MAE": 1.17,
+      "RMSE": 1.5156,
+      "R²": 0.8069
+    },
+    {
+      "Modelo": "Eolico",
+      "Algoritmo": "Reg. Lineal",
+      "MAE": 22.525,
+      "RMSE": 34.9086,
+      "R²": 0.447
+    },
+    {
+      "Modelo": "Eolico",
+      "Algoritmo": "Random Forest",
+      "MAE": 4.6276,
+      "RMSE": 8.7191,
+      "R²": 0.9655
+    },
+    {
+      "Modelo": "Eolico",
+      "Algoritmo": "Gradient Boosting",
+      "MAE": 3.4303,
+      "RMSE": 6.8332,
+      "R²": 0.9788
+    },
+    {
+      "Modelo": "Hidrico",
+      "Algoritmo": "Reg. Lineal",
+      "MAE": 3916.7436,
+      "RMSE": 4852.8068,
+      "R²": 0.517
+    },
+    {
+      "Modelo": "Hidrico",
+      "Algoritmo": "Random Forest",
+      "MAE": 1806.3122,
+      "RMSE": 2370.1537,
+      "R²": 0.8848
+    },
+    {
+      "Modelo": "Hidrico",
+      "Algoritmo": "Gradient Boosting",
+      "MAE": 1640.2805,
+      "RMSE": 2169.838,
+      "R²": 0.9034
+    }
+  ],
+  "cv_results_gkf5": [
+    {
+      "Modelo": "Solar",
+      "Algoritmo": "Reg. Lineal",
+      "R² medio": -0.4563,
+      "Desv. Est.": 0.963
+    },
+    {
+      "Modelo": "Solar",
+      "Algoritmo": "Random Forest",
+      "R² medio": 0.1276,
+      "Desv. Est.": 0.0948
+    },
+    {
+      "Modelo": "Solar",
+      "Algoritmo": "Gradient Boosting",
+      "R² medio": -0.042,
+      "Desv. Est.": 0.2264
+    },
+    {
+      "Modelo": "Eolico",
+      "Algoritmo": "Reg. Lineal",
+      "R² medio": -1.2229,
+      "Desv. Est.": 2.9749
+    },
+    {
+      "Modelo": "Eolico",
+      "Algoritmo": "Random Forest",
+      "R² medio": 0.7035,
+      "Desv. Est.": 0.2186
+    },
+    {
+      "Modelo": "Eolico",
+      "Algoritmo": "Gradient Boosting",
+      "R² medio": 0.7412,
+      "Desv. Est.": 0.2114
+    },
+    {
+      "Modelo": "Hidrico",
+      "Algoritmo": "Reg. Lineal",
+      "R² medio": -0.5004,
+      "Desv. Est.": 1.5496
+    },
+    {
+      "Modelo": "Hidrico",
+      "Algoritmo": "Random Forest",
+      "R² medio": 0.5194,
+      "Desv. Est.": 0.1474
+    },
+    {
+      "Modelo": "Hidrico",
+      "Algoritmo": "Gradient Boosting",
+      "R² medio": 0.4742,
+      "Desv. Est.": 0.162
+    }
+  ]
+}

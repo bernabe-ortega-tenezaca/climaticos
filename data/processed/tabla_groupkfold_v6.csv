@@ -1,0 +1,10 @@
+Modelo,Algoritmo,R² medio,Desv. Est.
+Solar,Reg. Lineal,-0.0439,0.4859
+Solar,Random Forest,0.0227,0.4494
+Solar,Gradient Boosting,-0.0386,0.6086
+Eolico,Reg. Lineal,0.3409,0.7822
+Eolico,Random Forest,0.5922,0.3848
+Eolico,Gradient Boosting,0.6292,0.2871
+Hidrico,Reg. Lineal,0.3303,0.3008
+Hidrico,Random Forest,0.4202,0.1575
+Hidrico,Gradient Boosting,0.4665,0.1901

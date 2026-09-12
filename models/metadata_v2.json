@@ -1,0 +1,34 @@
+{
+  "version": "v2",
+  "descripcion": "Modelos reentrenados SIN precip_total para eliminar data leakage",
+  "features": [
+    "latitude",
+    "longitude",
+    "month",
+    "temp_avg",
+    "wind_speed_avg",
+    "humidity_avg"
+  ],
+  "targets": [
+    "target_solar_kwh_per_m2",
+    "target_wind_mwh",
+    "target_hydro_mwh"
+  ],
+  "algoritmo": "RandomForestRegressor",
+  "random_state": 42,
+  "test_size": 0.2,
+  "metricas": [
+    {
+      "Modelo": "Solar",
+      "R\u00b2": 0.7656
+    },
+    {
+      "Modelo": "Eolico",
+      "R\u00b2": 0.9494
+    },
+    {
+      "Modelo": "Hidrico",
+      "R\u00b2": 0.7697
+    }
+  ]
+}

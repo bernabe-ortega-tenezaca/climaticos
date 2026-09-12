@@ -1,0 +1,28 @@
+name: tesis_renovables
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - jupyter
+  - geopandas
+  - folium
+  - contextily
+  - requests
+  - pytest
+  - pip:
+    - fastapi
+    - uvicorn[standard]
+    - streamlit
+    - streamlit-folium
+    - meteostat
+    - joblib
+    - pvlib
+    - tqdm
+    - reportlab
