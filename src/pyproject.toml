@@ -1,0 +1,34 @@
+[project]
+name = "atlas-energetico-ecuador"
+version = "1.0.0"
+description = "Prediccion de potencial energetico renovable en Ecuador usando Machine Learning"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "matplotlib",
+    "seaborn",
+    "geopandas",
+    "folium",
+    "contextily",
+    "requests",
+    "fastapi",
+    "uvicorn[standard]",
+    "streamlit",
+    "streamlit-folium",
+    "meteostat",
+    "joblib",
+    "pvlib",
+    "tqdm",
+    "reportlab",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "jupyter",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

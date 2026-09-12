@@ -1,0 +1,10 @@
+Modelo,Algoritmo,MAE,RMSE,R²
+Solar,Reg. Lineal,1.8296,2.296,0.3713
+Solar,Random Forest,1.121,1.4228,0.7586
+Solar,Gradient Boosting,1.1204,1.3719,0.7755
+Eolico,Reg. Lineal,4.8064,6.8413,0.8876
+Eolico,Random Forest,2.4464,4.1541,0.9585
+Eolico,Gradient Boosting,2.1613,3.4767,0.971
+Hidrico,Reg. Lineal,4278.616,5224.9237,0.3295
+Hidrico,Random Forest,1696.5973,2098.8562,0.8918
+Hidrico,Gradient Boosting,1433.7747,1850.9427,0.9159

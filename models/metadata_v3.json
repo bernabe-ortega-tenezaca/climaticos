@@ -1,0 +1,186 @@
+{
+  "version": "v3",
+  "fecha_entrenamiento": "2026-05-27 00:06:27",
+  "descripcion": "Centroides geometricos, imputacion por zona climatica, GridSearchCV, Hellman regionalizado",
+  "hiperparametros": {
+    "solar_rf": {
+      "max_depth": 5,
+      "min_samples_leaf": 1,
+      "min_samples_split": 2,
+      "n_estimators": 100
+    },
+    "wind_rf": {
+      "max_depth": 5,
+      "min_samples_leaf": 1,
+      "min_samples_split": 10,
+      "n_estimators": 200
+    },
+    "hydro_rf": {
+      "max_depth": 5,
+      "min_samples_leaf": 1,
+      "min_samples_split": 2,
+      "n_estimators": 100
+    },
+    "solar_gb": {
+      "learning_rate": 0.01,
+      "max_depth": 5,
+      "min_samples_split": 2,
+      "n_estimators": 100
+    },
+    "wind_gb": {
+      "learning_rate": 0.2,
+      "max_depth": 7,
+      "min_samples_split": 5,
+      "n_estimators": 100
+    },
+    "hydro_gb": {
+      "learning_rate": 0.01,
+      "max_depth": 3,
+      "min_samples_split": 2,
+      "n_estimators": 100
+    }
+  },
+  "features_solar_wind": [
+    "latitude",
+    "longitude",
+    "month",
+    "temp_avg",
+    "wind_speed_avg",
+    "humidity_avg"
+  ],
+  "features_hydro": [
+    "latitude",
+    "longitude",
+    "month",
+    "temp_avg",
+    "wind_speed_avg"
+  ],
+  "targets": [
+    "target_solar_kwh_per_m2",
+    "target_wind_mwh",
+    "target_hydro_mwh"
+  ],
+  "random_state": 42,
+  "test_size": 0.2,
+  "metricas_validacion": [
+    {
+      "Modelo": "Solar",
+      "Algoritmo": "Reg. Lineal",
+      "MAE": 0.6262,
+      "RMSE": 0.8536,
+      "R\u00b2": 0.6762
+    },
+    {
+      "Modelo": "Solar",
+      "Algoritmo": "Random Forest",
+      "MAE": 1.051,
+      "RMSE": 1.183,
+      "R\u00b2": 0.3781
+    },
+    {
+      "Modelo": "Solar",
+      "Algoritmo": "Gradient Boosting",
+      "MAE": 1.0258,
+      "RMSE": 1.2411,
+      "R\u00b2": 0.3155
+    },
+    {
+      "Modelo": "Eolico",
+      "Algoritmo": "Reg. Lineal",
+      "MAE": 38.9339,
+      "RMSE": 44.1477,
+      "R\u00b2": 0.9442
+    },
+    {
+      "Modelo": "Eolico",
+      "Algoritmo": "Random Forest",
+      "MAE": 11.0024,
+      "RMSE": 14.9148,
+      "R\u00b2": 0.9936
+    },
+    {
+      "Modelo": "Eolico",
+      "Algoritmo": "Gradient Boosting",
+      "MAE": 12.4255,
+      "RMSE": 16.1353,
+      "R\u00b2": 0.9926
+    },
+    {
+      "Modelo": "Hidrico",
+      "Algoritmo": "Reg. Lineal",
+      "MAE": 0.0,
+      "RMSE": 0.0,
+      "R\u00b2": 1.0
+    },
+    {
+      "Modelo": "Hidrico",
+      "Algoritmo": "Random Forest",
+      "MAE": 0.0,
+      "RMSE": 0.0,
+      "R\u00b2": 1.0
+    },
+    {
+      "Modelo": "Hidrico",
+      "Algoritmo": "Gradient Boosting",
+      "MAE": 0.0,
+      "RMSE": 0.0,
+      "R\u00b2": 1.0
+    }
+  ],
+  "cv_results_10fold": [
+    {
+      "Modelo": "Solar",
+      "Algoritmo": "Reg. Lineal",
+      "R\u00b2 medio": -2.5958605248408496e+16,
+      "Desv. Est.": 3.4996520089817244e+16
+    },
+    {
+      "Modelo": "Solar",
+      "Algoritmo": "Random Forest",
+      "R\u00b2 medio": -6.3241,
+      "Desv. Est.": 5.06
+    },
+    {
+      "Modelo": "Solar",
+      "Algoritmo": "Gradient Boosting",
+      "R\u00b2 medio": -9.5824,
+      "Desv. Est.": 8.0519
+    },
+    {
+      "Modelo": "Eolico",
+      "Algoritmo": "Reg. Lineal",
+      "R\u00b2 medio": -2.845248223477008e+20,
+      "Desv. Est.": 4.023787531318302e+20
+    },
+    {
+      "Modelo": "Eolico",
+      "Algoritmo": "Random Forest",
+      "R\u00b2 medio": -82.4072,
+      "Desv. Est.": 93.5609
+    },
+    {
+      "Modelo": "Eolico",
+      "Algoritmo": "Gradient Boosting",
+      "R\u00b2 medio": -53.4123,
+      "Desv. Est.": 56.6931
+    },
+    {
+      "Modelo": "Hidrico",
+      "Algoritmo": "Reg. Lineal",
+      "R\u00b2 medio": 1.0,
+      "Desv. Est.": 0.0
+    },
+    {
+      "Modelo": "Hidrico",
+      "Algoritmo": "Random Forest",
+      "R\u00b2 medio": 1.0,
+      "Desv. Est.": 0.0
+    },
+    {
+      "Modelo": "Hidrico",
+      "Algoritmo": "Gradient Boosting",
+      "R\u00b2 medio": 1.0,
+      "Desv. Est.": 0.0
+    }
+  ]
+}

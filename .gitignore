@@ -1,0 +1,13 @@
+# Datos externos voluminosos (ver README para descargarlos)
+data/external/ne_10m_*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Sistema
+.DS_Store
+Thumbs.db

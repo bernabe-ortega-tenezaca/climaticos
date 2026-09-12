@@ -1,0 +1,16 @@
+Modelo,Algoritmo,R²,MAE,RMSE
+Solar,Baseline_mean,-0.2344,2.7354,3.275
+Solar,Baseline_mensual,0.0058,2.3732,2.9209
+Solar,LR,-0.0439,2.3338,2.9587
+Solar,RF,0.0227,2.2879,2.8351
+Solar,GB,-0.0386,2.2798,2.8735
+Eolico,Baseline_mean,-1.0879,14.9824,21.1977
+Eolico,Baseline_mensual,-1.1776,14.4977,20.7264
+Eolico,LR,0.3409,7.1415,9.506
+Eolico,RF,0.5922,5.4346,10.1831
+Eolico,GB,0.6292,5.1782,9.5899
+Hidrico,Baseline_mean,-0.0317,5305.9155,6309.0658
+Hidrico,Baseline_mensual,0.3728,4027.1828,4923.6073
+Hidrico,LR,0.3303,4081.1199,4928.9315
+Hidrico,RF,0.4202,3649.3833,4680.0768
+Hidrico,GB,0.4665,3422.7592,4441.8775
