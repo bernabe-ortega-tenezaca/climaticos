@@ -27,7 +27,7 @@ sus métricas **no** son las del artículo.
 | Tabla 2 — partición aleatoria 80/20 + IC95 bootstrap | [`data/processed/tabla_iv_resultados_v6.csv`](data/processed/tabla_iv_resultados_v6.csv) y [`tabla_bootstrap_ci_v6.csv`](data/processed/tabla_bootstrap_ci_v6.csv) |
 | Tabla 3 — GroupKFold(5) y líneas base | [`data/processed/tabla_groupkfold_v6.csv`](data/processed/tabla_groupkfold_v6.csv) y [`tabla_baselines.csv`](data/processed/tabla_baselines.csv) |
 | Tabla 4 — fuera de dominio (Galápagos) | [`data/processed/galapagos_ood_results_v6.csv`](data/processed/galapagos_ood_results_v6.csv) |
-| Figura 1 — residuos por provincia | [`docs/residuos_solar.png`](docs/), `residuos_eolico.png`, `residuos_hidrico.png` |
+| Figura 1 — residuos por provincia | [`docs/residuos_solar.png`](docs/), `residuos_eolico.png`, `residuos_hidrico.png` — regenerados con [`scripts/regenerar_mapas.py`](scripts/regenerar_mapas.py) |
 | Figura 2 — importancia SHAP | [`docs/shap_solar_v6.png`](docs/), `shap_eolico.png`, `shap_hidrico.png` |
 
 ---
@@ -68,6 +68,24 @@ jupyter lab notebooks/7_model_training.ipynb
 ```
 
 Semilla fija `random_state = 42` en particiones, modelos y bootstrap.
+
+### Mapas de residuos
+
+Los mapas de `docs/residuos_*.png` se regeneran con:
+
+```bash
+python3 scripts/regenerar_mapas.py .
+```
+
+El script rehace el dataset v6, reproduce las predicciones fuera de pliegue con
+`GroupKFold(5)` sobre los modelos RF ya entrenados y **valida el error de cada
+provincia contra las cifras publicadas** antes de dibujar; si no coinciden,
+aborta sin generar nada.
+
+Sustituye a la versión anterior de los mapas, que tomaba la geometría de
+`data/raw/ecuador_provincias_poligonos.geojson`, cuyos polígonos son cajas
+envolventes de cinco vértices y no el contorno real de cada provincia. La
+geometría correcta procede del shapefile de Natural Earth.
 
 ### Datos de Natural Earth
 
